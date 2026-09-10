@@ -12,29 +12,37 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v5
+
       - name: Setup Node
         uses: actions/setup-node@v5
         with:
           node-version: "22"
-          cache: "npm"
+
       - name: Setup Java
         uses: actions/setup-java@v5
         with:
           distribution: "temurin"
           java-version: "21"
+
       - name: Install dependencies
         run: npm install
+
       - name: Align Expo SDK dependencies
         run: npx expo install --fix --non-interactive
+
       - name: Validate Expo project
         run: npx expo-doctor || true
+
       - name: Generate Android project
         run: npx expo prebuild --platform android --non-interactive --clean
+
       - name: Build installable APK
         working-directory: android
         run: ./gradlew assembleDebug
+
       - name: Rename APK
         run: cp android/app/build/outputs/apk/debug/app-debug.apk CIBO-DI-STRADA-V2.apk
+
       - name: Upload APK
         uses: actions/upload-artifact@v4
         with:
