@@ -1,0 +1,23 @@
+{
+  "expo": {
+    "name": "CIBO DI STRADA",
+    "slug": "cibo-di-strada",
+    "scheme": "cibodistrada",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "userInterfaceStyle": "light",
+    "backgroundColor": "#F7F0E3",
+    "primaryColor": "#0F2B24",
+    "ios": {
+      "supportsTablet": true,
+      "bundleIdentifier": "eu.ciboshop.app"
+    },
+    "android": {
+      "package": "eu.ciboshop.app",
+      "adaptiveIcon": {"backgroundColor": "#F7F0E3"},
+      "permissions": ["POST_NOTIFICATIONS"]
+    },
+    "plugins": [["expo-notifications", {"defaultChannel": "orders"}]],
+    "extra": {"siteUrl": "https://ciboshop.eu"}
+  }
+}
